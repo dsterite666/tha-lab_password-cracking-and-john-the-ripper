@@ -13,18 +13,18 @@ cd /pentest/passwords/john
 
 5. In the same terminal, enter the following command to start the cracking process:
 ```bash
-./john  --wordlist=/root/THA/words.txt --pot=/root/THA/password_lab/winxp/winxp.pot /root/THA/password_lab/winxp/xp_hashes.txt
+./john --wordlist=/root/THA/words.txt --pot=/root/THA/password_lab/winxp/winxp.pot /root/THA/password_lab/winxp/xp_hashes.txt
 ```
 This command starts john using a supplied word list, words.txt. It then writes the results to a .pot file called `winxp.pot`. The last part of the command specifies which hash file to target. John should then begin trying to crack the LM hashes. Since this is a small word list, and most of these passwords were in that word list, this should complete quite fast.
 
 7. John will display the username and password combinations it was able to find. To view our winxpLM.pot file, type the following command:
 ```bash
-./john  --show  --pot=/root/THA/password_lab/winxp/winxp.pot /root/THA/password_lab/winxp/xp_hashes.txt
+./john --show --pot=/root/THA/password_lab/winxp/winxp.pot /root/THA/password_lab/winxp/xp_hashes.txt
 ```
 This command tells john to display the results of our crack. The last part of the command lets John know the hash file that was used to generate that .pot file. John was able to crack a good portion of the user accounts using this word list. However, this word list is quite small and many of the user accounts were not cracked because of this.
 Lets use another password list within Kali/Backtrack to try cracking a few more passwords. To do this enter the following command:
 ```bash
-./john  --wordlist=/pentest/passwords/wordlists/darkc0de.lst --pot=/root/THA/password_lab/winxp/winxp.pot /root/THA/password_lab/winxp/xp_hashes.txt
+./john --wordlist=/pentest/passwords/wordlists/darkc0de.lst --pot=/root/THA/password_lab/winxp/winxp.pot /root/THA/password_lab/winxp/xp_hashes.txt
 ```
 8. This is similar to our previous command, but we are using the darkc0de word list, which is much larger than words.txt. To display what we have now cracked, type the following command:
 ```bash
